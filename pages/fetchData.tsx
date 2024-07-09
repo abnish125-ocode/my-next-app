@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Header from "@/components/Header";
 import { useState } from "react";
-import Filter from "./filter";
-import Footer from '@/components/Footer';
+import Filter from '@/components/Filter';
 
 
 
@@ -101,7 +100,7 @@ const FetchData = ({ users, todos }: Props) => {
     }
     return (
         <>
-            {/* <Header /> */}
+           
             <div className="filter-sec">
             <Filter onFilterChange={filterChangeValue} arr={arr} />
             </div>
@@ -126,9 +125,7 @@ const FetchData = ({ users, todos }: Props) => {
                             userData.map((todo, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        {/* {
-                                            shoIndex > index ? 
-                                        } */}
+                                      
                                         {
                                             todo.completed && (filters == 'All' || filters == 'Yes') ? <tr key={todo.id} className="yesbank">
 
@@ -166,13 +163,13 @@ const FetchData = ({ users, todos }: Props) => {
 
 
             </div>
-            {/* <Footer /> */}
+           
         </>
     )
 }
 export default FetchData;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
     async function fetchDatasfromApi(url: string) {
         const response = await fetch(url);
