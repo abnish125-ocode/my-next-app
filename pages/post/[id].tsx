@@ -12,7 +12,7 @@ const Post = ({ post }: any) => {
     );
 };
 
-export async function getServerSideProps({ params }: any) {
+export async function getStaticProps({ params }: any) {
 
     const res = await fetch(
         `https://jsonplaceholder.typicode.com/posts/${params.id}`
